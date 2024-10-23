@@ -1,0 +1,262 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --laranjaEscuro: #8a2c02;
+  --laranjaClaro: #f08b33;
+  --laranjaMeio: #d75404;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1a1a;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .logo {
+  width: 130px;
+  margin-top: 30px;
+}
+
+.botaos {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-sabores {
+  padding: 15px 40px;
+  background: none;
+  border: 1px solid white;
+  color: var(--laranjaClaro);
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+
+.btn-sabores:hover {
+  background-color: var(--laranjaMeio);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  transform: scale(1.05);
+}
+
+.btn-produto {
+  padding: 15px 40px;
+  background-color: var(--laranjaClaro);
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.btn-produto:hover {
+  background-color: #ba6c27;
+  transform: scale(1.05);
+}
+
+
+
+.esconde {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+#messageProduto {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  z-index: 10000;
+}
+
+dialog {
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form-sabores,
+.form-produto {
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.crud-sabores h1 {
+  color: white;
+}
+
+.crud-produto h1 {
+  color: white;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--laranjaMeio);
+  border-radius: 5px;
+  background-color: #3a3a3a;
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--laranjaClaro);
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--laranjaClaro);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--laranjaMeio);
+  transform: scale(1.05);
+}
+
+#message,
+#messageProduto {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.saboresCadastrados {
+ width: 100%;
+ display: flex;
+ text-align: center;
+ justify-content: center;
+}
+
+/* TbSabores */
+
+.divTable-sabor .tituloTbSabores {
+
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.tituloHistorico {
+
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--laranjaClaro);
+  margin-top: 40px;
+}
+.s-tabelaProduto{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.divTable-produto{
+  width: 80%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+th,
+td {
+  border: 1px solid var(--laranjaMeio);
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--laranjaMeio);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #3a3a3a;
+}
+
+tbody tr:hover {
+  background-color: var(--laranjaEscuro);
+  transition: background-color 0.3s;
+}
+
+.editar{
+  color: #33f043;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.excluir{
+  color: #f03333;
+  text-decoration: none;
+}
