@@ -37,16 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleeditarsabor.css" />
     <title>Editar Sabor</title>
 </head>
 <body>
-    <h1>Editar Sabor</h1>
+    <div class="container">
+        <h1>Editar Sabor</h1>
     <form action="" method="POST">
         <label for="nome-sabor">Nome do Sabor:</label>
         <input id="nome-sabor" name="nome-sabor" type="text" value="<?php echo $sabor['nome']; ?>" required />
         <button type="submit">Atualizar</button>
     </form>
-    <a href="listaSabor.php">Voltar</a>
+    <a href="listaSabor.php">Voltar</a></div>
 </body>
 </html>

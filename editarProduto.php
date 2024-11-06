@@ -37,10 +37,11 @@ while ($rowSabor = mysqli_fetch_assoc($saboresQuery)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleeditarproduto.css" />
     <title>Editar Produto</title>
 </head>
 <body>
+<div class="container">
     <h1>Editar Produto</h1>
     <form action="" method="POST">
         <label for="produto-nome">Nome:</label>
@@ -64,5 +65,6 @@ while ($rowSabor = mysqli_fetch_assoc($saboresQuery)) {
 
         <button type="submit">Atualizar Produto</button>
     </form>
+</div>
 </body>
 </html>

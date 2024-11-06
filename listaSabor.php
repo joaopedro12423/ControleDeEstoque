@@ -111,12 +111,13 @@ if (!$query_cadastrosProduto) {
                 <?php
                 foreach ($sabores as $sabor) {
                     echo '<tr>';
-                    echo '<td>' . $sabor['id'] . '</td>';
-                    echo '<td>' . $sabor['nome'] . '</td>';
-                    echo '<td>
-                            <a class = "editar" href="editarSabor.php?id=' . $sabor['id'] . '">Editar</a>
-                            <a class = "excluir" href="excluirSabor.php?id=' . $sabor['id'] . '" onclick="return confirm(\'Tem certeza que deseja excluir este sabor?\');">Excluir</a>
-                          </td>';
+                    echo '<td data-th="id">' . $sabor['id'] . '</td>';
+                    echo '<td data-th="nome">' . $sabor['nome'] . '</td>';
+                    echo '<td data-th="ações">
+        <a class="editar" href="editarSabor.php?id=' . $sabor['id'] . '" onclick="return confirm(\'Atenção: Ao modificar o sabor nesta tabela, o sabor também será alterado na tabela produto. Você tem certeza de que deseja realizar essa alteração?\');">Editar</a>
+        <a class="excluir" href="excluirSabor.php?id=' . $sabor['id'] . '" onclick="return confirm(\'Atenção: Se você excluir este sabor, o produto associado a ele também será excluído. Você tem certeza de que deseja excluir este sabor?\');">Excluir</a>
+      </td>';
+
                     echo '</tr>';
                 }
                 ?>
@@ -128,7 +129,7 @@ if (!$query_cadastrosProduto) {
 <section class = "s-tabelaProduto">
     <div class="divTable-produto">
         <h1 class="tituloHistorico">Produtos cadastrados</h1>
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -146,12 +147,12 @@ if (!$query_cadastrosProduto) {
                     $querySabor = mysqli_query($connx, "SELECT nome FROM sabores WHERE id = $saborId");
                     $sabor = mysqli_fetch_assoc($querySabor);
                     echo '<tr>';
-                    echo '<td>' . $rowProduto['id'] . '</td>';
-                    echo '<td>' . $rowProduto['nome'] . '</td>';
-                    echo '<td>' . $rowProduto['valor'] . '</td>';
-                    echo '<td>' . $rowProduto['quantidade'] . '</td>';
-                    echo '<td>' . ($sabor ? $sabor['nome'] : 'N/A') . '</td>';
-                    echo '<td>
+                    echo '<td data-th="id">' . $rowProduto['id'] . '</td>';
+                    echo '<td data-th="Nome">' . $rowProduto['nome'] . '</td>';
+                    echo '<td data-th="Valor">' . $rowProduto['valor'] . '</td>';
+                    echo '<td data-th="QTd">' . $rowProduto['quantidade'] . '</td>';
+                    echo '<td data-th="Sabores">' . ($sabor ? $sabor['nome'] : 'N/A') . '</td>';
+                    echo '<td data-th="Ações">
                             <a class = "editar" href="editarProduto.php?id=' . $rowProduto['id'] . '">Editar</a>
                             <a class = "excluir" href="excluirProduto.php?id=' . $rowProduto['id'] . '" onclick="return confirm(\'Tem certeza que deseja excluir este produto?\');">Excluir</a>
                           </td>';
