@@ -5,26 +5,35 @@
 }
 
 :root {
-  --laranjaEscuro: #8a2c02;
-  --laranjaClaro: #f08b33;
-  --laranjaMeio: #d75404;
+  --laranja-escuro: #8a2c02;
+  --laranja-claro: #f08b33;
+  --laranja-meio: #d75404;
+  --cinza-escuro: #2a2a2a;
+  --cinza-claro: #3a3a3a;
+  --branco: #fff;
+  --verde: #28a745;
+  --preto-translucido: rgba(0, 0, 0, 0.8);
 }
 
 body {
   width: 100%;
   height: 100vh;
   background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+  color: var(--branco);
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding-top: 30px;
 }
 
 header .logo {
   width: 130px;
-  margin-top: 30px;
 }
 
 .botaos {
@@ -36,28 +45,32 @@ header .logo {
   gap: 15px;
 }
 
-.btn-sabores {
+.btn-sabores,
+.btn-produto {
   padding: 15px 40px;
-  background: none;
-  border: 1px solid white;
-  color: var(--laranjaClaro);
-  transition: 0.6s ease;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease;
   cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-sabores {
+  background: none;
+  color: var(--laranja-claro);
+  border: 1px solid var(--laranja-claro);
 }
 
 .btn-sabores:hover {
-  background-color: var(--laranjaMeio);
-  color: black;
+  background-color: var(--laranja-meio);
+  color: #000;
   border: none;
-  border-radius: 5px;
   transform: scale(1.05);
 }
 
 .btn-produto {
-  padding: 15px 40px;
-  background-color: var(--laranjaClaro);
+  background-color: var(--laranja-claro);
   border-radius: 5px;
-  transition: 0.3s ease;
 }
 
 .btn-produto:hover {
@@ -65,29 +78,15 @@ header .logo {
   transform: scale(1.05);
 }
 
-.esconde {
-  display: none;
-}
-
-.hidden {
-  display: none;
-}
-
-#message {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: green;
-  color: white;
-  text-align: center;
-}
-
+#message,
 #messageProduto {
   margin-top: 10px;
   padding: 10px;
-  background-color: green;
-  color: white;
+  background-color: var(--verde);
+  color: var(--branco);
   text-align: center;
-  z-index: 10000;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
 }
 
 dialog {
@@ -96,10 +95,6 @@ dialog {
   background-color: #2c2c2c;
   width: 400px;
   max-width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -108,7 +103,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--preto-translucido);
 }
 
 .form-sabores,
@@ -122,15 +117,7 @@ dialog::backdrop {
 label {
   margin-top: 10px;
   font-weight: bold;
-  color: white;
-}
-
-.crud-sabores h1 {
-  color: white;
-}
-
-.crud-produto h1 {
-  color: white;
+  color: var(--branco);
 }
 
 input,
@@ -138,16 +125,16 @@ select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid var(--laranjaMeio);
+  border: 1px solid var(--laranja-meio);
   border-radius: 5px;
-  background-color: #3a3a3a;
-  color: white;
+  background-color: var(--cinza-claro);
+  color: var(--branco);
   transition: border-color 0.3s ease;
 }
 
 input:focus,
 select:focus {
-  border-color: var(--laranjaClaro);
+  border-color: var(--laranja-claro);
   outline: none;
 }
 
@@ -155,100 +142,49 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: var(--laranjaClaro);
-  color: white;
+  background-color: var(--laranja-claro);
+  color: var(--branco);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--laranjaMeio);
+  background-color: var(--laranja-meio);
   transform: scale(1.05);
-}
-
-#message,
-#messageProduto {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: green;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  transition: opacity 0.3s ease;
-}
-
-.fechar-modal {
-  margin-top: 10px;
-}
-
-.saboresCadastrados {
-  width: 100%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-/* TbSabores */
-
-.divTable-sabor .tituloTbSabores {
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.tituloHistorico {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--laranjaClaro);
-  margin-top: 40px;
-}
-
-.s-tabelaProduto {
-  width: 100%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.divTable-produto {
-  width: 80%;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: var(--cinza-escuro);
+  border-radius: 8px;
+  overflow: hidden;
   margin-top: 20px;
-  background-color: #2a2a2a;
-  color: white;
-  border-radius: 8px; /* Arredonda as bordas da tabela */
-  overflow: hidden; /* Esconde bordas arredondadas nas células */
 }
 
-th,
-td {
-  border: 1px solid var(--laranjaMeio);
-  padding: 7px;
+th, td {
+  padding: 12px;
   text-align: left;
   position: relative;
+  border: 1px solid var(--laranja-meio);
 }
 
 th {
-  background-color: var(--laranjaMeio);
+  background-color: var(--laranja-meio);
 }
 
 tbody tr:nth-child(even) {
-  background-color: #3a3a3a;
+  background-color: var(--cinza-claro);
 }
 
 tbody tr:hover {
-  background-color: var(--laranjaEscuro);
-  transition: background-color 0.3s;
+  background-color: var(--laranja-escuro);
+  transition: background-color 0.3s ease;
 }
 
 .editar {
   color: #33f043;
   text-decoration: none;
-  margin-right: 10px;
 }
 
 .excluir {
@@ -256,25 +192,33 @@ tbody tr:hover {
   text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {  
+@media screen and (max-width: 768px) {
+  .tituloHistorico {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--laranja-claro);
+  }
+
   thead {
     display: none;
   }
 
   td {
     display: block;
+    width: 100%;
+    margin-bottom: 10px;
     gap: 5rem;
-    grid-template-columns: 10ch auto;
   }
 
   td::before {
     content: attr(data-th) ": ";
     font-weight: bold;
   }
-  .botaos{
-    display: flex;
+
+  .botaos {
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 }
+
